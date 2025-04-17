@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AccesoryDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNg-mR-Om7">
+                                <rect key="frame" x="16" y="75" width="361" height="40"/>
+                                <color key="tintColor" red="0.039215686270000001" green="0.1137254902" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Upload Image">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectImgBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BQr-Gh-pok"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="uF1-kH-9y9">
+                                <rect key="frame" x="16" y="130.99999999999997" width="361" height="341.33333333333326"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Image valid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcA-KJ-kD0">
+                                <rect key="frame" x="16" y="776" width="158.66666666666666" height="26"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mX8-xq-Uky">
+                                <rect key="frame" x="190.66666666666666" y="775.33333333333337" width="26" height="27.333333333333371"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mX8-xq-Uky" secondAttribute="height" id="mgg-zh-dFs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HcA-KJ-kD0" secondAttribute="bottom" constant="16" id="Bhc-Da-iLF"/>
+                            <constraint firstItem="mX8-xq-Uky" firstAttribute="bottom" secondItem="HcA-KJ-kD0" secondAttribute="bottom" id="IFx-1F-cpB"/>
+                            <constraint firstItem="PNg-mR-Om7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IwD-bF-EiE"/>
+                            <constraint firstItem="mX8-xq-Uky" firstAttribute="top" secondItem="HcA-KJ-kD0" secondAttribute="top" id="MCB-8t-L2I"/>
+                            <constraint firstItem="uF1-kH-9y9" firstAttribute="top" secondItem="PNg-mR-Om7" secondAttribute="bottom" constant="16" id="QPF-7b-jVP"/>
+                            <constraint firstItem="HcA-KJ-kD0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uF1-kH-9y9" secondAttribute="bottom" constant="16" id="S5Z-QI-x0z"/>
+                            <constraint firstItem="mX8-xq-Uky" firstAttribute="leading" secondItem="HcA-KJ-kD0" secondAttribute="trailing" constant="16" id="WsL-JW-MtR"/>
+                            <constraint firstItem="HcA-KJ-kD0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hrN-nh-Dg3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uF1-kH-9y9" secondAttribute="trailing" constant="16" id="o12-fM-gdD"/>
+                            <constraint firstItem="PNg-mR-Om7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="odr-BR-T8f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PNg-mR-Om7" secondAttribute="trailing" constant="16" id="oeZ-o6-aaD"/>
+                            <constraint firstItem="uF1-kH-9y9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="whS-3Y-xhN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="isValidImgView" destination="mX8-xq-Uky" id="Rly-xd-TtS"/>
+                        <outlet property="selectedImgView" destination="uF1-kH-9y9" id="4cl-In-ZCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58.778625954198468" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.seal" catalog="system" width="128" height="124"/>
+        <image name="icon" width="341.33334350585938" height="341.33334350585938"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
