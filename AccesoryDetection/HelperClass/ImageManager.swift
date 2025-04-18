@@ -52,21 +52,98 @@ final class ImageManager {
 
 // MARK: Private Methods
 extension ImageManager {
+//    // MARK: MobileVi
+//    private func checkAccesories(in img: CGImage) -> Bool {
+//        do {
+//            let input = try MobileViInput(inputWith: img)
+//            let model = try MobileVi()
+//            let prediction = try model.prediction(input: input)
+//            let label = prediction.classLabel.lowercased()
+//            let perecentage: Int = Int((prediction.var_1216[label] ?? 0) * 100.0)
+//            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)")
+//            if label.contains("mask") && perecentage > 17 {
+//                return false
+//            }
+//            if label.contains("glass") && perecentage > 20 {
+//                return false
+//            }
+//            if (label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace")) {
+//                return false
+//            }
+//            return true
+//        } catch {
+//            debugPrint("Error: \(error.localizedDescription)")
+//        }
+//        return false
+//    }
+    
+//    // MARK: Codeformer
+//    private func checkAccesories(in img: CGImage) -> Bool {
+//        do {
+//            let input = try ConformerInput(x_1With: img)
+//            let model = try Conformer()
+//            let prediction = try model.prediction(input: input)
+//            let label = prediction.classLabel.lowercased()
+//            let perecentage: Int = Int((prediction.var_2736[label] ?? 0) * 100.0)
+//            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)%")
+//            if label.contains("mask") || label.contains("glass") || label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace") {
+//                return false
+//            }
+//            return true
+//        } catch {
+//            debugPrint("Error: \(error.localizedDescription)")
+//        }
+//        return false
+//    }
+    
+//    // MARK: Efficientnet
+//    private func checkAccesories(in img: CGImage) -> Bool {
+//        do {
+//            let input = try efficientnetInput(keras_layer_1_inputWith: img)
+//            let model = try efficientnet(configuration: MLModelConfiguration())
+//            let prediction = try model.prediction(input: input)
+//            let label = prediction.classLabel.lowercased()
+//            let perecentage: Int = Int((prediction.Identity[label] ?? 0) * 100.0)
+//            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)%")
+//            if label.contains("mask") || label.contains("glass") || label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace") {
+//                return false
+//            }
+//            return true
+//        } catch {
+//            debugPrint("Error: \(error.localizedDescription)")
+//        }
+//        return false
+//    }
+    
+//    // MARK: MobileViT
+//    private func checkAccesories(in img: CGImage) -> Bool {
+//        do {
+//            let input = try MobileViTInput(imageWith: img)
+//            let model = try MobileViT(configuration: MLModelConfiguration())
+//            let prediction = try model.prediction(input: input)
+//            let label = prediction.classLabel.lowercased()
+//            let perecentage: Int = Int((prediction.probabilities[label] ?? 0) * 100.0)
+//            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)%")
+//            if label.contains("mask") || label.contains("glass") || label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace") {
+//                return false
+//            }
+//            return true
+//        } catch {
+//            debugPrint("Error: \(error.localizedDescription)")
+//        }
+//        return false
+//    }
+    
+    // MARK: Resnet50
     private func checkAccesories(in img: CGImage) -> Bool {
         do {
-            let input = try MobileViInput(inputWith: img)
-            let model = try MobileVi()
+            let input = try Resnet50Input(imageWith: img)
+            let model = try Resnet50(configuration: MLModelConfiguration())
             let prediction = try model.prediction(input: input)
             let label = prediction.classLabel.lowercased()
-            let perecentage: Int = Int((prediction.var_1216[label] ?? 0) * 100.0)
-//            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)")
-            if label.contains("mask") && perecentage > 17 {
-                return false
-            }
-            if label.contains("glass") && perecentage > 20 {
-                return false
-            }
-            if (label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace")) {
+            let perecentage: Int = Int((prediction.classLabelProbs[label] ?? 0) * 100.0)
+            debugPrint("Label: \(prediction.classLabel), Confidence: \(perecentage)%")
+            if label.contains("mask") || label.contains("glass") || label.contains("cap") || label.contains("hat") || label.contains("bucket") || label.contains("brace") || label.contains("shades") {
                 return false
             }
             return true
@@ -75,7 +152,6 @@ extension ImageManager {
         }
         return false
     }
-    
     
     private func getCropedImage(from image: CGImage, area: CGRect) -> CGImage? {
         let width = CGFloat(image.width)
